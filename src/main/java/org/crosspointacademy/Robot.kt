@@ -14,7 +14,10 @@ import edu.wpi.first.wpilibj.TimedRobot
  */
 object Robot : TimedRobot()
 {
-    override fun robotInit() {}
+    override fun robotInit() {
+        Drive.bottomLeftVictor.inverted = true
+        Drive.bottomRightVictor.inverted = true
+    }
 
     override fun robotPeriodic() {}
 
@@ -25,7 +28,7 @@ object Robot : TimedRobot()
     override fun teleopInit() {}
 
     override fun teleopPeriodic() {
-        Drive.drive(Controls.j1x, Controls.j1y, Controls.r1y)
+        Drive.drive(-Controls.j1y, -Controls.j1x, Controls.r1x)
     }
 
     override fun disabledInit() {}

@@ -9,6 +9,6 @@ object Controls {
     val j1y get() = driveJoystick.y
 
     private val rotationJoystick = Joystick(1)
-    val r1y get() = rotationJoystick.y
+    val r1x get() = rotationJoystick.x
 
 }

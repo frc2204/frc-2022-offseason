@@ -2,10 +2,9 @@ package org.crosspointacademy
 
 import com.ctre.phoenix.motorcontrol.ControlMode
 import com.ctre.phoenix.motorcontrol.can.VictorSPX
-import edu.wpi.first.wpilibj.SpeedController
 import edu.wpi.first.wpilibj.motorcontrol.MotorController
 
-class FRCVictorSPX(port: Int): MotorController {
+class FRCVictorSPX(port: Int, private val multiplier: Double = 1.0): MotorController {
 
     private val victor = VictorSPX(port)
 
@@ -21,7 +20,7 @@ class FRCVictorSPX(port: Int): MotorController {
     override fun set(speed: Double) {
         if (disabled) return
         val co = if (victorInverted) 1.0 else -1.0
-        victorSpeed = co * speed
+        victorSpeed = co * speed * multiplier
 
         victor.set(ControlMode.PercentOutput, victorSpeed)
     }
