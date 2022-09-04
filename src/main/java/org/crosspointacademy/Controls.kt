@@ -11,4 +11,7 @@ object Controls {
     private val rotationJoystick = Joystick(1)
     val r1x get() = rotationJoystick.x
 
+    val push get() = rotationJoystick.getRawButton(2)
+    val pull get() = rotationJoystick.getRawButton(3)
+
 }

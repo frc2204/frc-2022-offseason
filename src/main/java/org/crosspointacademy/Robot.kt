@@ -29,6 +29,8 @@ object Robot : TimedRobot()
 
     override fun teleopPeriodic() {
         Drive.drive(-Controls.j1y, -Controls.j1x, Controls.r1x)
+
+        if (Controls.pull) Pneumatics.pull() else if (Controls.push) Pneumatics.push() else Pneumatics.off()
     }
 
     override fun disabledInit() {}
